@@ -1,21 +1,17 @@
-// To parse this JSON data, do
-//
-//     final welcome = welcomeFromJson(jsonString);
-
 import 'dart:convert';
 
-Welcome welcomeFromJson(String str) => Welcome.fromJson(json.decode(str));
+Stickers stickersFromJson(String str) => Stickers.fromJson(json.decode(str));
 
-//String welcomeToJson(Welcome data) => json.encode(data.toJson());
+//String StickersToJson(Stickers data) => json.encode(data.toJson());
 
-class Welcome {
-    Welcome({
+class Stickers {
+    Stickers({
          required this.records,
     });
 
     List<Record> records;
 
-    factory Welcome.fromJson(Map<String, dynamic> json) => Welcome(
+    factory Stickers.fromJson(Map<String, dynamic> json) => Stickers(
         records: List<Record>.from(json["records"].map((x) => Record.fromJson(x))),
     );
 
