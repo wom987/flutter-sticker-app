@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:stickerapp/models/menu_item.dart';
 //? menu items
 class MenuItems{
-  static const home = MenuItem('Home',Icons.home_rounded);
+  static const home = MenuItem('Stickers',Icons.home_rounded);
   static const help = MenuItem('Help',Icons.help);
   static const aboutUs = MenuItem('About Us',Icons.info_outline);
   static const rateUs = MenuItem('Rate Us',Icons.star_border_outlined);

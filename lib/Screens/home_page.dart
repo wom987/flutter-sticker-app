@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:stickerapp/Screens/sticker_detail.dart';
 import 'package:stickerapp/models/stickers.dart';
+import 'package:stickerapp/utils/constants.dart';
 import 'package:stickerapp/utils/menu_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -23,11 +24,14 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ThemeData themeData = Theme.of(context);
+    ThemeData themeData = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.cyan[200],
-        title: const Text("HomePage"),
+        title: Text(
+          dotenv.env['STICKER_APP'].toString(),
+          style: textThemeDefault.headline2,
+        ),
         leading: const MenuWidget(),
       ),
       body: FutureBuilder<Stickers>(

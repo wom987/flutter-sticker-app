@@ -19,7 +19,7 @@ Future main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-  
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -28,9 +28,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: dotenv.env['APP_NAME'].toString(),
       debugShowCheckedModeBanner: false,
-      theme:  ThemeData(
+      theme: ThemeData(
         primaryColor: colorWhite,
-        textTheme: screenWidth<500?textThemeSmall:textThemeDefault, 
+        textTheme: screenWidth < 500 ? textThemeSmall : textThemeDefault,
       ),
       home: const MyHomePage(),
     );
@@ -45,50 +45,46 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   MenuItem currentItem = MenuItems.home;
-  
+
   @override
   // ignore: prefer_const_constructors
   Widget build(BuildContext context) => ZoomDrawer(
-    // * screen border radious
-    borderRadius: 40,
-    // * screen angle 
-    angle: -5,
-    // * it determines the translation for the screen 
-    slideWidth: MediaQuery.of(context).size.width*0.7,
-    // * shadow allowed to have a color
-    showShadow: true,
-    // * shadow color
-    backgroundColor: Colors.purpleAccent,
-    // * drawer styles
-    style: DrawerStyle.Style1,
-    // ignore: prefer_const_constructors
-    // calling the screen selected
-    mainScreen: getScreen(),
-    // * this builder allows to close the zoom drawer and change the state and send the selected item
-    menuScreen: Builder(
-      builder: (context)=>
-        MenuPage(
-          currentItem:currentItem,
-          onSelectedItem:(item){
-            setState(()=>currentItem=item);
-            ZoomDrawer.of(context)!.close();
-          },
-          
-        )
-    ),
-
-  );
+        // * screen border radious
+        borderRadius: 40,
+        // * screen angle
+        angle: -5,
+        // * it determines the translation for the screen
+        slideWidth: MediaQuery.of(context).size.width * 0.7,
+        // * shadow allowed to have a color
+        showShadow: true,
+        // * shadow color
+        backgroundColor: Colors.purpleAccent,
+        // * drawer styles
+        style: DrawerStyle.Style1,
+        // ignore: prefer_const_constructors
+        // calling the screen selected
+        mainScreen: getScreen(),
+        // * this builder allows to close the zoom drawer and change the state and send the selected item
+        menuScreen: Builder(
+            builder: (context) => MenuPage(
+                  currentItem: currentItem,
+                  onSelectedItem: (item) {
+                    setState(() => currentItem = item);
+                    ZoomDrawer.of(context)!.close();
+                  },
+                )),
+      );
   // * it displays the current page
-  Widget getScreen(){
+  Widget getScreen() {
     switch (currentItem) {
       case MenuItems.home:
-          return  const HomePage();
+        return const HomePage();
       case MenuItems.aboutUs:
-          return const AboutUsPage();
+        return const AboutUsPage();
       case MenuItems.rateUs:
-          return const RateUsPage();
+        return const RateUsPage();
       default:
-          return const HelpPage();
+        return const HelpPage();
     }
   }
 }
