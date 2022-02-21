@@ -7,7 +7,7 @@ class AboutUsPage extends StatelessWidget{
   @override
   Widget build(BuildContext context) =>Scaffold(
     appBar: AppBar(
-      backgroundColor: Colors.greenAccent,
+      backgroundColor: Colors.amberAccent,
       title: const Text("AboutUsPage"),
       leading: const MenuWidget(),
       ),

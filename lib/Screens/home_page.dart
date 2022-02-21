@@ -7,7 +7,7 @@ class HomePage extends StatelessWidget{
   @override
   Widget build(BuildContext context) =>Scaffold(
     appBar: AppBar(
-      backgroundColor: Colors.greenAccent,
+      backgroundColor: Colors.cyan[200],
       title: const Text("HomePage"),
       leading: const MenuWidget(),
       ),

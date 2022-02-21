@@ -7,7 +7,7 @@ class HelpPage extends StatelessWidget{
   @override
   Widget build(BuildContext context) =>Scaffold(
     appBar: AppBar(
-      backgroundColor: Colors.greenAccent,
+      backgroundColor: Colors.brown[200],
       title: const Text("HelpPage"),
       leading: const MenuWidget(),
       ),

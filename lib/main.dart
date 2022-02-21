@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget {
     double screenWidth = window.physicalSize.width;
     return MaterialApp(
       title: dotenv.env['APP_NAME'].toString(),
+      debugShowCheckedModeBanner: false,
       theme:  ThemeData(
         primaryColor: colorWhite,
         textTheme: screenWidth<500?textThemeSmall:textThemeDefault, 
